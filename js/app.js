@@ -3,7 +3,9 @@
 // This way any bugs can be control by a modular means
 
 var Character = function(x, y, sprite) {
-
+  this.sprite = sprite;
+  this.x = x;
+  this.y = y;
 };
 
 Character.prototype.render = function() {
