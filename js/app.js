@@ -19,6 +19,8 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+
+    // each bug will have dif speed
 };
 
 // create object for each item in the game
@@ -86,7 +88,10 @@ Game_Start.prototype = Object.create(Character.prototype);
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-
+var allEnemies = [];
+var player = new Player();
+var star = new Star();
+var game_start = new Game_Start();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
