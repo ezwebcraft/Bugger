@@ -3,13 +3,13 @@
 // This way any bugs can be control by a modular means
 
 var Character = function(x, y, sprite) {
-  this.sprite = sprite;
-  this.x = x;
-  this.y = y;
+    this.sprite = sprite;
+    this.x = x;
+    this.y = y;
 };
 
 Character.prototype.render = function() {
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 
@@ -20,7 +20,7 @@ var Enemy = function() {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.pn
+    this.sprite = 'images/enemy-bug.pn'
     Character.call(this, x, y, sprite);
     this.speed = Speed();
     // each bug will have dif speed
@@ -36,28 +36,41 @@ var Game_Start = function(x, y, sprite) {};
 // Game Object Methods  speed, collusion and number generator
 // source for random number https://gist.github.com/kerimdzhanov/7529623
 
-var random_Num = function (minimum, maximum) {
-  return Math.floor(Math.random()*(maximum - minimum + 1) + minimum);
+var random_Num = function(minimum, maximum) {
+    return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
 };
 
-var Speed = function () {
-  return random_Num(1, 10);
+var Speed = function() {
+    return random_Num(1, 10);
 };
 
-var random_Selector = function (array) {
-  return array[Math.floor(Math.random() * array.length)];
+var random_Selector = function(array) {
+    return array[Math.floor(Math.random() * array.length)];
 };
 
 // source for collision 
 // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+// with box area limit on the enmey will check for collision refering the object.box_area
 
-var collision_Checker = function (object, player) {
-  return ;
+var collision_Checker = function(object, player) {
+    var col_area = (player.x > object.x - object.box_Area.x/2 &&
+          player.x < object.x + object.box_Area.x/2 &&
+          player.y > object.y - object.box_Area.y/2 &&
+          player.y < object.y + object.box_Area.y/2);
+
+    return col_area;
 };
 
 
 // use character class for each object
 Enemy.prototype = Object.create(Character.prototype);
+
+// box area for Enemy
+
+Enemy.prototype.box_Area = {
+    'x': 50,
+    'y': 60
+};
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
