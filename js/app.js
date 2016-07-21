@@ -36,12 +36,12 @@ var Game_Start = function(x, y, sprite) {};
 // Game Object Methods  speed, collusion and number generator
 // source for random number https://gist.github.com/kerimdzhanov/7529623
 
-var random_Num = function(minimum, maximum) {
+var Random_Num = function(minimum, maximum) {
     return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
 };
 
 var Speed = function() {
-    return random_Num(1, 10);
+    return Random_Num(1, 10);
 };
 
 var random_Selector = function(array) {
@@ -52,11 +52,11 @@ var random_Selector = function(array) {
 // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 // with box area limit on the enmey will check for collision refering the object.box_area
 
-var collision_Checker = function(object, player) {
-    var col_area = (player.x > object.x - object.box_Area.x/2 &&
-          player.x < object.x + object.box_Area.x/2 &&
-          player.y > object.y - object.box_Area.y/2 &&
-          player.y < object.y + object.box_Area.y/2);
+var Collision_Checker = function(object, player) {
+    var col_area = (player.x > object.x - object.box_Area.x / 2 &&
+        player.x < object.x + object.box_Area.x / 2 &&
+        player.y > object.y - object.box_Area.y / 2 &&
+        player.y < object.y + object.box_Area.y / 2);
 
     return col_area;
 };
@@ -86,11 +86,11 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     // enemy will reppear
     if () {
-      // by dt 
-    this.x += this.speed * dt;
-  } else {
-   
-  }
+        // by dt 
+        this.x += this.speed * dt;
+    } else {
+
+    }
 };
 
 // prototype sections
@@ -111,7 +111,6 @@ Game_Start.prototype.constructor = Game_Start;
 //    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 //};
 
-// 
 
 // Now write your own player class
 // This class requires an update(), render() and
