@@ -30,6 +30,7 @@ var Enemy = function(x, y, sprite) {
 
 var Player = function(x, y, sprite) {};
 
+
 var Game_Start = function(x, y, sprite) {};
 
 
@@ -85,6 +86,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     // enemy will reppear
+
     if () {
         // by dt 
         this.x += this.speed * dt;
@@ -98,6 +100,11 @@ Enemy.prototype.update = function(dt) {
 Player.prototype = Object.create(Character.prototype);
 
 Player.prototype.constructor = Player;
+
+Player.prototype.handleInput = function(e) {
+  this.action = e;
+};
+
 
 Star.prototype = Object.create(Character.prototype);
 
