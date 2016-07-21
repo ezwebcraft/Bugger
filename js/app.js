@@ -14,7 +14,7 @@ Character.prototype.render = function() {
 
 
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y, sprite) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -72,6 +72,11 @@ Enemy.prototype.box_Area = {
     'y': 60
 };
 
+// Y location of the Enemy and update
+
+Enemy.prototype.location_y = [50, 150, 200];
+
+Enemy.prototype.constructor = Enemy;
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 
@@ -85,9 +90,15 @@ Enemy.prototype.update = function(dt) {
 
 Player.prototype = Object.create(Character.prototype);
 
+Player.prototype.constructor = Player;
+
 Star.prototype = Object.create(Character.prototype);
 
+Star.prototype.constructor = Star;
+
 Game_Start.prototype = Object.create(Character.prototype);
+
+Game_Start.prototype.constructor = Game_Start;
 // Draw the enemy on the screen, required method for game
 //Enemy.prototype.render = function() {
 //    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
