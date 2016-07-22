@@ -121,6 +121,8 @@ Player.prototype = Object.create(Character.prototype);
 
 Player.prototype.constructor = Player;
 
+
+
 Player.prototype.handleInput = function(e) {
     this.action = e;
 };

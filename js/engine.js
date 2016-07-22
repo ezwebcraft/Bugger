@@ -91,10 +91,12 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
+        start.render();
+        //start.render();
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        player.update();
+        //player.render();
     }
 
     /* This function initially draws the "game level", it will then call
