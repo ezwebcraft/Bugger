@@ -102,6 +102,9 @@ Enemy.prototype.update = function(dt) {
         // by dt 
         this.x += this.speed * dt;
     } else {
+      this.x = -this.box_Area.x;
+    this.y = random_Selector(this.location_y);
+    this.speed = Speed();
 
     }
 
