@@ -28,7 +28,12 @@ var Enemy = function(x, y, sprite) {
 
 // create object for each item in the game
 
-var Player = function(x, y, sprite) {};
+var Player = function(x, y, sprite) {
+  sprite = 'images/char-boy.png';
+  x = 50;
+  y = 100;
+  Character.call(this, x, y, sprite);
+};
 
 
 var Game_Start = function(x, y, sprite) {};
