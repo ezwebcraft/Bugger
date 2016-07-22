@@ -78,6 +78,7 @@ Enemy.prototype.box_Area = {
 Enemy.prototype.location_y = [50, 150, 200];
 
 Enemy.prototype.constructor = Enemy;
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 
@@ -87,12 +88,18 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     // enemy will reppear
 
-    if () {
+    if (this.x <= canvas.width) {
         // by dt 
         this.x += this.speed * dt;
     } else {
 
     }
+
+     // if the player tounches the enemy
+  if (collision_Checker(this, player)) {
+    player.reset();
+  }
+
 };
 
 // prototype sections
@@ -102,7 +109,7 @@ Player.prototype = Object.create(Character.prototype);
 Player.prototype.constructor = Player;
 
 Player.prototype.handleInput = function(e) {
-  this.action = e;
+    this.action = e;
 };
 
 
@@ -113,6 +120,7 @@ Star.prototype.constructor = Star;
 Game_Start.prototype = Object.create(Character.prototype);
 
 Game_Start.prototype.constructor = Game_Start;
+
 // Draw the enemy on the screen, required method for game
 //Enemy.prototype.render = function() {
 //    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
