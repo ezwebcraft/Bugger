@@ -1,6 +1,6 @@
 // game functions
 // JavaScript Object Methods to create a Character object
-// This way any bugs can be control by a modular means
+// This way any bugs can be control by a modular means or componete 
 
 var Character = function(x, y, sprite) {
     this.sprite = sprite;
