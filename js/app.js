@@ -36,7 +36,12 @@ var Player = function(x, y, sprite) {
 };
 
 
-var Game_Start = function(x, y, sprite) {};
+var Game_Start = function(x, y, sprite) {
+  sprite = 'images/Selector.png';
+  x = 50;
+  y = 100;
+  Character.call(this, x, y, sprite);
+};
 
 
 // Game Object Methods  speed, collusion and number generator
@@ -118,6 +123,12 @@ Player.prototype.handleInput = function(e) {
 };
 
 
+// location to place player
+Player.prototype.reset = function() {
+  this.x = 100;
+  this.y = 200;
+};
+
 Star.prototype = Object.create(Character.prototype);
 
 Star.prototype.constructor = Star;
@@ -141,7 +152,11 @@ Game_Start.prototype.constructor = Game_Start;
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-var allEnemies = [];
+var allEnemies = [
+  new Enemy(-100, 50),
+  new Enemy(-100, 150),
+  new Enemy(-100, 200)];
+
 var player = new Player();
 var star = new Star();
 var game_start = new Game_Start();
