@@ -29,18 +29,18 @@ var Enemy = function(x, y, sprite) {
 // create object for each item in the game
 
 var Player = function(x, y, sprite) {
-  sprite = 'images/char-boy.png';
-  x = 50;
-  y = 100;
-  Character.call(this, x, y, sprite);
+    sprite = 'images/char-boy.png';
+    x = 50;
+    y = 100;
+    Character.call(this, x, y, sprite);
 };
 
 
 var Game_Start = function(x, y, sprite) {
-  sprite = 'images/Selector.png';
-  x = 50;
-  y = 100;
-  Character.call(this, x, y, sprite);
+    sprite = 'images/Selector.png';
+    x = 50;
+    y = 100;
+    Character.call(this, x, y, sprite);
 };
 
 
@@ -102,16 +102,16 @@ Enemy.prototype.update = function(dt) {
         // by dt 
         this.x += this.speed * dt;
     } else {
-      this.x = -this.box_Area.x;
-    this.y = random_Selector(this.location_y);
-    this.speed = Speed();
+        this.x = -this.box_Area.x;
+        this.y = random_Selector(this.location_y);
+        this.speed = Speed();
 
     }
 
-     // if the player tounches the enemy
-  if (collision_Checker(this, player)) {
-    player.reset();
-  }
+    // if the player tounches the enemy
+    if (collision_Checker(this, player)) {
+        player.reset();
+    }
 
 };
 
@@ -128,8 +128,8 @@ Player.prototype.handleInput = function(e) {
 
 // location to place player
 Player.prototype.reset = function() {
-  this.x = 100;
-  this.y = 200;
+    this.x = 100;
+    this.y = 200;
 };
 
 Star.prototype = Object.create(Character.prototype);
@@ -156,9 +156,10 @@ Game_Start.prototype.constructor = Game_Start;
 // Place the player object in a variable called player
 
 var allEnemies = [
-  new Enemy(-100, 50),
-  new Enemy(-100, 150),
-  new Enemy(-100, 200)];
+    new Enemy(-100, 50),
+    new Enemy(-100, 150),
+    new Enemy(-100, 200)
+];
 
 var player = new Player();
 var star = new Star();
