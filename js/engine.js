@@ -28,10 +28,10 @@ var Engine = (function(global) {
     canvas.width = 505;
     canvas.height = 606;
     canvas.boundaries = {
-    'up': 0,
-    'right': 100,
-    'down': 100,
-    'left': 0
+    'up': 200,
+    'right': 200,
+    'down': 200,
+    'left': 200
   };
     doc.body.appendChild(canvas);
 

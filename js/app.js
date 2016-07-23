@@ -1,6 +1,8 @@
 // game functions
 // JavaScript Object Methods to create a Character object
 // This way any bugs can be control by a modular means or componete 
+var Score_Board = 0;
+
 
 var Character = function(x, y, sprite) {
     this.sprite = sprite;
@@ -99,7 +101,7 @@ Enemy.prototype.update = function(dt) {
     // enemy will reppear
 
     if (this.x <= canvas.width) {
-        // by dt 
+
         this.x += this.speed * dt;
     } else {
         this.x = -this.box_Area.x;
@@ -152,7 +154,7 @@ Player.prototype.update = function() {
     this.position = this.x + ',' + this.y;
 
   }
-
+  this.action = null;
   if (this.y < 10) {
     this.reset();
   }
