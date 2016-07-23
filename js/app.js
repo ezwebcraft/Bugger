@@ -32,16 +32,16 @@ var Enemy = function(x, y, sprite) {
 
 var Player = function(x, y, sprite) {
     sprite = 'images/char-boy.png';
-    x = 50;
-    y = 100;
+    x = 100;
+    y = 200;
     Character.call(this, x, y, sprite);
 };
 
 
 var Game_Start = function(x, y, sprite) {
     sprite = 'images/Selector.png';
-    x = 50;
-    y = 100;
+    x = 100;
+    y = 300;
     Character.call(this, x, y, sprite);
 };
 
