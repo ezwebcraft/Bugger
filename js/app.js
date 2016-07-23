@@ -20,7 +20,7 @@ var Enemy = function(x, y, sprite) {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    sprite = 'images/enemy-bug.pn'
+    sprite = 'images/enemy-bug.png'
     Character.call(this, x, y, sprite);
     this.speed = Speed();
     // each bug will have dif speed
