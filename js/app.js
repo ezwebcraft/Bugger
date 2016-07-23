@@ -20,7 +20,7 @@ var Enemy = function(x, y, sprite) {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.pn'
+    sprite = 'images/enemy-bug.pn'
     Character.call(this, x, y, sprite);
     this.speed = Speed();
     // each bug will have dif speed
@@ -178,6 +178,7 @@ Game_Start.prototype = Object.create(Character.prototype);
 
 Game_Start.prototype.constructor = Game_Start;
 
+Game_Start.prototype.update = function(dt) {};
 // Draw the enemy on the screen, required method for game
 //Enemy.prototype.render = function() {
 //    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
