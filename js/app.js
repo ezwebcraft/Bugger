@@ -121,7 +121,43 @@ Player.prototype = Object.create(Character.prototype);
 
 Player.prototype.constructor = Player;
 
+Player.prototype.update = function() {
+  // process action and move player
+  var pos_x = 100;
+  var pos_y = 50;
+  switch(this.action) {
+    case 'up':
+      if (this.y > canvas.boundaries.up) {
+        this.y -= pos_y;
+      }
+      break;
+    case 'right':
+      if (this.x < canvas.boundaries.right) {
+        this.x += pos_x;
+      }
+      break;
+    case 'down':
+      if (this.y < canvas.boundaries.down) {
+        this.y += pos_y;
+      }
+      break;
+    case 'left':
+      if (this.x > canvas.boundaries.left) {
+        this.x -= pos_x;
+      }
+      break;
+  }
 
+  if (this.position !== this.x + ',' + this.y) {
+    this.position = this.x + ',' + this.y;
+
+  }
+
+  if (this.y < 10) {
+    this.reset();
+  }
+
+};
 
 Player.prototype.handleInput = function(e) {
     this.action = e;
