@@ -79,17 +79,19 @@ var Collision_Checker = function(object, player) {
 Enemy.prototype = Object.create(Character.prototype);
 
 // box area for Enemy
+Enemy.prototype.location_y = [50, 150, 200];
 
 Enemy.prototype.box_Area = {
     'x': 50,
     'y': 60
 };
 
+Enemy.prototype.constructor = Enemy;
 // Y location of the Enemy and update
 
-Enemy.prototype.location_y = [50, 150, 200];
 
-Enemy.prototype.constructor = Enemy;
+
+
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
