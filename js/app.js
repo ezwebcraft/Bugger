@@ -74,9 +74,9 @@ var random_Selector = function(array) {
 
 var Collision_Checker = function(object, player) {
     return (player.x > object.x - object.box_Area.x / 2 &&
-        player.x < object.x + object.box_Area.x / 2 &&
-        player.y > object.y - object.box_Area.y / 2 &&
-        player.y < object.y + object.box_Area.y / 2);
+            player.x < object.x + object.box_Area.x / 2 &&
+            player.y > object.y - object.box_Area.y / 2 &&
+            player.y < object.y + object.box_Area.y / 2);
 
 
 };
