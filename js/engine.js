@@ -156,44 +156,43 @@ var Engine = (function(global) {
          */
         
 
-        game_start.render();
+    game_start.render();
         
         star.render();
+    allEnemies.forEach(function(enemy) {
+      enemy.render();
+    });
 
-        allEnemies.forEach(function(enemy) {
-            enemy.render();
-        });
+    player.render();
+  }
 
-        player.render();
-    }
+  /* This function does nothing but it could have been a good place to
+   * handle game reset states - maybe a new game menu or a game over screen
+   * those sorts of things. It's only called once by the init() method.
+   */
+  function reset() {
+    // noop
+  }
 
-    /* This function does nothing but it could have been a good place to
-     * handle game reset states - maybe a new game menu or a game over screen
-     * those sorts of things. It's only called once by the init() method.
-     */
-    function reset() {
-        // noop
-    }
+  /* Go ahead and load all of the images we know we're going to need to
+   * draw our game level. Then set init as the callback method, so that when
+   * all of these images are properly loaded our game will start.
+   */
+  Resources.load([
+    'images/stone-block.png',
+    'images/water-block.png',
+    'images/grass-block.png',
+    'images/enemy-bug.png',
+    'images/char-boy.png',
+    'images/Star.png',
+    'images/Selector.png'
+  ]);
+  Resources.onReady(init);
 
-    /* Go ahead and load all of the images we know we're going to need to
-     * draw our game level. Then set init as the callback method, so that when
-     * all of these images are properly loaded our game will start.
-     */
-    Resources.load([
-        'images/stone-block.png',
-        'images/water-block.png',
-        'images/grass-block.png',
-        'images/enemy-bug.png',
-        'images/char-boy.png',
-        'images/Star.png',
-        'images/Selector.png'
-    ]);
-    Resources.onReady(init);
-
-    /* Assign the canvas' context object to the global variable (the window
-     * object when run in a browser) so that developers can use it more easily
-     * from within their app.js files.
-     */
-    global.canvas = canvas;
-    global.ctx = ctx;
+  /* Assign the canvas' context object to the global variable (the window
+   * object when run in a browser) so that developer's can use it more easily
+   * from within their app.js files.
+   */
+  global.canvas = canvas;
+  global.ctx = ctx;
 })(this);

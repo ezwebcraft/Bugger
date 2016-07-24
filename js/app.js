@@ -3,16 +3,17 @@
 // This way any bugs can be control by a modular means or componete 
 var Score_Board = 0;
 
-
 var Character = function(x, y, sprite) {
-    this.sprite = sprite;
-    this.x = x;
-    this.y = y;
+  this.sprite = sprite;
+  this.x = x;
+  this.y = y;
 };
+
 
 Character.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
 
 
 // Enemies our player must avoid
@@ -22,63 +23,62 @@ var Enemy = function(x, y, sprite) {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    sprite = 'images/enemy-bug.png'
-    Character.call(this, x, y, sprite);
-    this.speed = Speed();
-    // each bug will have dif speed
+    sprite = 'images/enemy-bug.png';
+  Character.call(this, x, y, sprite);
+  this.speed = Speed(); // units = [px/dt]
 };
 
 // create object for each item in the game
 
 var Player = function(x, y, sprite) {
-    sprite = 'images/char-boy.png';
-    x = 100;
-    y = 200;
-    Character.call(this, x, y, sprite);
+  sprite = 'images/char-boy.png';
+  x = 100;
+  y = 200;
+  Character.call(this, x, y, sprite);
+};
+
+
+var Star = function(x, y, sprite) {
+  sprite = 'images/Star.png';
+  x = 100;
+  y = 68;
+  Character.call(this, x, y, sprite);
 };
 
 // add start position 
-var Star = function(x, y, sprite) {
-    sprite = 'images/Star.png';
-    x = 200;
-    y = 68;
-    Character.call(this, x, y, sprite);
-};
 
 var Game_Start = function(x, y, sprite) {
-    sprite = 'images/Selector.png';
-    x = 100;
-    y = 300;
-    Character.call(this, x, y, sprite);
+  sprite = 'images/Selector.png';
+  x = 100;
+  y = 200;
+  Character.call(this, x, y, sprite);
 };
 
 
 // Game Object Methods  speed, collusion and number generator
 // source for random number https://gist.github.com/kerimdzhanov/7529623
 
-var Random_Num = function(minimum, maximum) {
-    return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
+var random_Num = function (minimum, maximum) {
+  return Math.floor(Math.random()*(maximum - minimum + 1) + minimum);
 };
 
-var Speed = function() {
-    return Random_Num(1, 100);
+var Speed = function () {
+  return random_Num(100, 200);
 };
 
-var random_Selector = function(array) {
-    return array[Math.floor(Math.random() * array.length)];
+var random_Selector = function (array) {
+  return array[Math.floor(Math.random() * array.length)];
 };
 
 // source for collision 
 // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 // with box area limit on the enmey will check for collision refering the object.box_area
 
-var Collision_Checker = function(object, player) {
-    return (player.x > object.x - object.box_Area.x / 2 &&
-            player.x < object.x + object.box_Area.x / 2 &&
-            player.y > object.y - object.box_Area.y / 2 &&
-            player.y < object.y + object.box_Area.y / 2);
-
-
+var collision_Checker = function (object, player) {
+  return (player.x > object.x - object.box_Area.x/2 &&
+          player.x < object.x + object.box_Area.x/2 &&
+          player.y > object.y - object.box_Area.y/2 &&
+          player.y < object.y + object.box_Area.y/2);
 };
 
 
@@ -87,10 +87,7 @@ Enemy.prototype = Object.create(Character.prototype);
 
 // box area for Enemy
 
-Enemy.prototype.box_Area = {
-    'x': 100,
-    'y': 60
-};
+Enemy.prototype.box_Area = {'x': 100,'y': 60};
 
 // Y location of the Enemy and update
 Enemy.prototype.location_y = [50, 150, 200];
@@ -121,7 +118,6 @@ Enemy.prototype.update = function(dt) {
     if (collision_Checker(this, player)) {
         player.reset();
     }
-
 };
 
 // prototype sections
@@ -157,7 +153,7 @@ Player.prototype.update = function() {
             break;
     }
 
-    // track psotion
+    // track position
 
     if (this.position !== this.x + ',' + this.y) {
 
@@ -193,7 +189,7 @@ Star.prototype.location_x = [];
 
 Star.prototype.constructor = Star;
 
-Star.prototype.update = function(dt) {);
+Star.prototype.update = function(dt) {};
 
 Game_Start.prototype = Object.create(Character.prototype);
 
