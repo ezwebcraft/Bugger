@@ -37,6 +37,13 @@ var Player = function(x, y, sprite) {
     Character.call(this, x, y, sprite);
 };
 
+// add start position 
+var Star = function(x, y, sprite) {
+    sprite = 'images/Star.png';
+    x = 200;
+    y = 68;
+    Character.call(this, x, y, sprite);
+};
 
 var Game_Start = function(x, y, sprite) {
     sprite = 'images/Selector.png';
@@ -54,7 +61,7 @@ var Random_Num = function(minimum, maximum) {
 };
 
 var Speed = function() {
-    return Random_Num(1, 10);
+    return Random_Num(1, 100);
 };
 
 var random_Selector = function(array) {
@@ -66,12 +73,12 @@ var random_Selector = function(array) {
 // with box area limit on the enmey will check for collision refering the object.box_area
 
 var Collision_Checker = function(object, player) {
-    var col_area = (player.x > object.x - object.box_Area.x / 2 &&
+    return (player.x > object.x - object.box_Area.x / 2 &&
         player.x < object.x + object.box_Area.x / 2 &&
         player.y > object.y - object.box_Area.y / 2 &&
         player.y < object.y + object.box_Area.y / 2);
 
-    return col_area;
+
 };
 
 
@@ -79,19 +86,16 @@ var Collision_Checker = function(object, player) {
 Enemy.prototype = Object.create(Character.prototype);
 
 // box area for Enemy
-Enemy.prototype.location_y = [50, 150, 200];
 
 Enemy.prototype.box_Area = {
-    'x': 50,
+    'x': 100,
     'y': 60
 };
 
-Enemy.prototype.constructor = Enemy;
 // Y location of the Enemy and update
+Enemy.prototype.location_y = [50, 150, 200];
 
-
-
-
+Enemy.prototype.constructor = Enemy;
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -102,9 +106,10 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     // enemy will reppear
 
-    if (this.x <= canvas.width) {
+    if (this.x <= (canvas.width + this.box_Area.x / 2)) {
 
         this.x += this.speed * dt;
+
     } else {
         this.x = -this.box_Area.x;
         this.y = random_Selector(this.location_y);
@@ -126,40 +131,46 @@ Player.prototype = Object.create(Character.prototype);
 Player.prototype.constructor = Player;
 
 Player.prototype.update = function() {
-  // process action and move player
-  var pos_x = 100;
-  var pos_y = 50;
-  switch(this.action) {
-    case 'up':
-      if (this.y > canvas.boundaries.up) {
-        this.y -= pos_y;
-      }
-      break;
-    case 'right':
-      if (this.x < canvas.boundaries.right) {
-        this.x += pos_x;
-      }
-      break;
-    case 'down':
-      if (this.y < canvas.boundaries.down) {
-        this.y += pos_y;
-      }
-      break;
-    case 'left':
-      if (this.x > canvas.boundaries.left) {
-        this.x -= pos_x;
-      }
-      break;
-  }
+    // process action and move player
+    var pos_x = 100;
+    var pos_y = 50;
+    switch (this.action) {
+        case 'up':
+            if (this.y > canvas.boundaries.up) {
+                this.y -= pos_y;
+            }
+            break;
+        case 'right':
+            if (this.x < canvas.boundaries.right) {
+                this.x += pos_x;
+            }
+            break;
+        case 'down':
+            if (this.y < canvas.boundaries.down) {
+                this.y += pos_y;
+            }
+            break;
+        case 'left':
+            if (this.x > canvas.boundaries.left) {
+                this.x -= pos_x;
+            }
+            break;
+    }
 
-  if (this.position !== this.x + ',' + this.y) {
-    this.position = this.x + ',' + this.y;
+    // track psotion
 
-  }
-  this.action = null;
-  if (this.y < 10) {
-    this.reset();
-  }
+    if (this.position !== this.x + ',' + this.y) {
+
+        this.position = this.x + ',' + this.y;
+
+    }
+
+    // null that action for reset
+    this.action = null;
+
+    if (this.y < 20) {
+        this.reset();
+    }
 
 };
 
@@ -176,13 +187,19 @@ Player.prototype.reset = function() {
 
 Star.prototype = Object.create(Character.prototype);
 
+Star.prototype.box_Area = {};
+
+Star.prototype.location_x = [];
+
 Star.prototype.constructor = Star;
+
+Star.prototype.update = function(dt) {);
 
 Game_Start.prototype = Object.create(Character.prototype);
 
-Game_Start.prototype.constructor = Game_Start;
+//Game_Start.prototype.constructor = Game_Start;
 
-Game_Start.prototype.update = function(dt) {};
+//Game_Start.prototype.update = function(dt) {};
 // Draw the enemy on the screen, required method for game
 //Enemy.prototype.render = function() {
 //    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
