@@ -63,7 +63,7 @@ var random_Num = function (minimum, maximum) {
 };
 
 var Speed = function () {
-  return random_Num(100, 200);
+  return random_Num(100, 300);
 };
 
 var random_Selector = function (array) {
