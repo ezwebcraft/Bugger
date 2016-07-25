@@ -23,7 +23,7 @@ var Enemy = function(x, y, sprite) {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    sprite = 'images/enemy-bug.png';
+  sprite = 'images/enemy-bug.png';
   Character.call(this, x, y, sprite);
   this.speed = Speed(); // units = [px/dt]
 };
@@ -49,8 +49,8 @@ var Star = function(x, y, sprite) {
 
 var Game_Start = function(x, y, sprite) {
   sprite = 'images/Selector.png';
-  x = 100;
-  y = 200;
+  x = 200;
+  y = 400;
   Character.call(this, x, y, sprite);
 };
 
