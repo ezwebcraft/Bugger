@@ -129,7 +129,7 @@ Player.prototype.constructor = Player;
 Player.prototype.update = function() {
     // process action and move player
     var pos_x = 100;
-    var pos_y = 50;
+    var pos_y = 75;
     switch (this.action) {
         case 'up':
             if (this.y > canvas.boundaries.up) {
@@ -177,8 +177,8 @@ Player.prototype.handleInput = function(e) {
 
 // location to place player
 Player.prototype.reset = function() {
-    this.x = 100;
-    this.y = 200;
+    this.x = 200;
+    this.y = 400;
 };
 
 Star.prototype = Object.create(Character.prototype);
