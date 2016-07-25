@@ -213,8 +213,8 @@ Game_Start.prototype = Object.create(Character.prototype);
 
 var allEnemies = [
     new Enemy(-100, 50),
-    new Enemy(-100, 150),
-    new Enemy(-100, 200)
+    new Enemy(-100, 140),
+    new Enemy(-100, 230)
 ];
 
 var player = new Player();
