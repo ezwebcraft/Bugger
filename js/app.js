@@ -4,14 +4,14 @@
 var Score_Board = 0;
 
 var Character = function(x, y, sprite) {
-  this.sprite = sprite;
-  this.x = x;
-  this.y = y;
+    this.sprite = sprite;
+    this.x = x;
+    this.y = y;
 };
 
 
 Character.prototype.render = function() {
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 
@@ -23,62 +23,62 @@ var Enemy = function(x, y, sprite) {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-  sprite = 'images/enemy-bug.png';
-  Character.call(this, x, y, sprite);
-  this.speed = Speed(); // units = [px/dt]
+    sprite = 'images/enemy-bug.png';
+    Character.call(this, x, y, sprite);
+    this.speed = Speed(); // units = [px/dt]
 };
 
 // create object for each item in the game
 
 var Player = function(x, y, sprite) {
-  sprite = 'images/char-boy.png';
-  x = 200;
-  y = 400;
-  Character.call(this, x, y, sprite);
+    sprite = 'images/char-boy.png';
+    x = 200;
+    y = 400;
+    Character.call(this, x, y, sprite);
 };
 
 
 var Star = function(x, y, sprite) {
-  sprite = 'images/Star.png';
-  x = 200;
-  y = 68;
-  Character.call(this, x, y, sprite);
+    sprite = 'images/Star.png';
+    x = 200;
+    y = 68;
+    Character.call(this, x, y, sprite);
 };
 
 // add start position 
 
 var Game_Start = function(x, y, sprite) {
-  sprite = 'images/Selector.png';
-  x = 200;
-  y = 400;
-  Character.call(this, x, y, sprite);
+    sprite = 'images/Selector.png';
+    x = 200;
+    y = 400;
+    Character.call(this, x, y, sprite);
 };
 
 
 // Game Object Methods  speed, collusion and number generator
 // source for random number https://gist.github.com/kerimdzhanov/7529623
 
-var random_Num = function (minimum, maximum) {
-  return Math.floor(Math.random()*(maximum - minimum + 1) + minimum);
+var random_Num = function(minimum, maximum) {
+    return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
 };
 
-var Speed = function () {
-  return random_Num(100, 300);
+var Speed = function() {
+    return random_Num(100, 300);
 };
 
-var random_Selector = function (array) {
-  return array[Math.floor(Math.random() * array.length)];
+var random_Selector = function(array) {
+    return array[Math.floor(Math.random() * array.length)];
 };
 
 // source for collision 
 // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 // with box area limit on the enmey will check for collision refering the object.box_area
 
-var collision_Checker = function (object, player) {
-  return (player.x > object.x - object.box_Area.x/2 &&
-          player.x < object.x + object.box_Area.x/2 &&
-          player.y > object.y - object.box_Area.y/2 &&
-          player.y < object.y + object.box_Area.y/2);
+var collision_Checker = function(object, player) {
+    return (player.x > object.x - object.box_Area.x / 2 &&
+        player.x < object.x + object.box_Area.x / 2 &&
+        player.y > object.y - object.box_Area.y / 2 &&
+        player.y < object.y + object.box_Area.y / 2);
 };
 
 
@@ -87,7 +87,10 @@ Enemy.prototype = Object.create(Character.prototype);
 
 // box area for Enemy
 
-Enemy.prototype.box_Area = {'x': 100,'y': 60};
+Enemy.prototype.box_Area = {
+    'x': 100,
+    'y': 60
+};
 
 // Y location of the Enemy and update
 Enemy.prototype.location_y = [50, 150, 300];
