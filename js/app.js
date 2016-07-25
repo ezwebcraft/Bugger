@@ -32,8 +32,8 @@ var Enemy = function(x, y, sprite) {
 
 var Player = function(x, y, sprite) {
   sprite = 'images/char-boy.png';
-  x = 100;
-  y = 200;
+  x = 200;
+  y = 400;
   Character.call(this, x, y, sprite);
 };
 
