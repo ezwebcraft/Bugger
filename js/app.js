@@ -90,7 +90,7 @@ Enemy.prototype = Object.create(Character.prototype);
 Enemy.prototype.box_Area = {'x': 100,'y': 60};
 
 // Y location of the Enemy and update
-Enemy.prototype.location_y = [50, 150, 200];
+Enemy.prototype.location_y = [50, 150, 300];
 
 Enemy.prototype.constructor = Enemy;
 
@@ -214,7 +214,8 @@ Game_Start.prototype = Object.create(Character.prototype);
 var allEnemies = [
     new Enemy(-100, 50),
     new Enemy(-100, 135),
-    new Enemy(-100, 230)
+    new Enemy(-100, 230),
+    new Enemy(-100, 260)
 ];
 
 var player = new Player();
