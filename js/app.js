@@ -40,7 +40,7 @@ var Player = function(x, y, sprite) {
 
 var Star = function(x, y, sprite) {
   sprite = 'images/Star.png';
-  x = 100;
+  x = 200;
   y = 68;
   Character.call(this, x, y, sprite);
 };
@@ -213,7 +213,7 @@ Game_Start.prototype = Object.create(Character.prototype);
 
 var allEnemies = [
     new Enemy(-100, 50),
-    new Enemy(-100, 140),
+    new Enemy(-100, 135),
     new Enemy(-100, 230)
 ];
 

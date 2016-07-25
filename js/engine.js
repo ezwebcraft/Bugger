@@ -29,8 +29,8 @@ var Engine = (function(global) {
     canvas.height = 606;
     canvas.boundaries = {
     'up': 0,
-    'right': 200,
-    'down': 200,
+    'right': 400,
+    'down': 400,
     'left': 0
   };
     doc.body.appendChild(canvas);
@@ -119,7 +119,7 @@ var Engine = (function(global) {
                 'images/stone-block.png',   // Row 1 of 3 of stone
                 'images/stone-block.png',   // Row 2 of 3 of stone
                 'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
+                'images/stone-block.png',   // Row 1 of 2 of grass
                 'images/grass-block.png'    // Row 2 of 2 of grass
             ],
             numRows = 6,
