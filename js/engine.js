@@ -116,10 +116,10 @@ var Engine = (function(global) {
          */
         var rowImages = [
                 'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/stone-block.png',   // Row 1 of 2 of grass
+                'images/stone-block.png',   // Row 1 of 4 of stone
+                'images/stone-block.png',   // Row 2 of 4 of stone
+                'images/stone-block.png',   // Row 3 of 4 of stone
+                'images/stone-block.png',   // Row 4 of 4 of grass
                 'images/grass-block.png'    // Row 2 of 2 of grass
             ],
             numRows = 6,
@@ -158,9 +158,9 @@ var Engine = (function(global) {
 
     game_start.render();
         
-        star.render();
+    star.render();
     allEnemies.forEach(function(enemy) {
-      enemy.render();
+    enemy.render();
     });
 
     player.render();
