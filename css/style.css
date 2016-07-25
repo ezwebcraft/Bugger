@@ -6,3 +6,13 @@ body {
   text-align: center;
 }
 
+p {
+  margin: 0;
+}
+
+canvas{
+border: 3px solid black;
+border-radius:10%;
+
+}
+
