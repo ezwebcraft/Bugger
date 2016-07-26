@@ -1,12 +1,13 @@
 // game functions
 // JavaScript Object Methods to create a Character object
 // This way any bugs can be control by a modular means or componete 
-var Score_Board = 0;
+var Score_Board = 0.0;
 
 var Character = function(x, y, sprite) {
     this.sprite = sprite;
     this.x = x;
     this.y = y;
+
 };
 
 
@@ -41,7 +42,7 @@ var Player = function(x, y, sprite) {
 var Star = function(x, y, sprite) {
     sprite = 'images/Star.png';
     x = 200;
-    y = 65;
+    y = 75;
     Character.call(this, x, y, sprite);
 };
 
@@ -76,9 +77,9 @@ var random_Selector = function(array) {
 
 var collision_Checker = function(object, player) {
     return (player.x > object.x - object.box_Area.x / 2 &&
-        player.x < object.x + object.box_Area.x / 2 &&
-        player.y > object.y - object.box_Area.y / 2 &&
-        player.y < object.y + object.box_Area.y / 2);
+            player.x < object.x + object.box_Area.x / 2 &&
+            player.y > object.y - object.box_Area.y / 2 &&
+            player.y < object.y + object.box_Area.y / 2);
 };
 
 
@@ -88,12 +89,12 @@ Enemy.prototype = Object.create(Character.prototype);
 // box area for Enemy
 
 Enemy.prototype.box_Area = {
-    'x': 120,
+    'x': 130,
     'y': 80
 };
 
 // Y location of the Enemy and update
-Enemy.prototype.location_y = [50,140,220,300];
+Enemy.prototype.location_y = [50, 140, 220, 300];
 
 Enemy.prototype.constructor = Enemy;
 
@@ -167,7 +168,7 @@ Player.prototype.update = function() {
     // null that action for reset
     this.action = null;
 
-    if (this.y < 20) {
+    if (this.y < 30) {
         this.reset();
     }
 
@@ -186,13 +187,25 @@ Player.prototype.reset = function() {
 
 Star.prototype = Object.create(Character.prototype);
 
-Star.prototype.box_Area = {};
+Star.prototype.box_Area = {
+    x: 90,
+    y: 70
+};
 
-Star.prototype.location_x = [];
+Star.prototype.location_x = 200;
 
 Star.prototype.constructor = Star;
 
-Star.prototype.update = function(dt) {};
+Star.prototype.update = function(dt) {
+
+    if (collision_Checker(this, player)) {
+        player.reset();
+        this.x = this.location_x;
+        Score_Board += 5;
+        $("#score").text(Score_Board);
+        
+    }
+};
 
 Game_Start.prototype = Object.create(Character.prototype);
 
