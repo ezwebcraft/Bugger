@@ -98,6 +98,7 @@ var Engine = (function(global) {
      */
     function updateEntities(dt) {
         star.update();
+        bluegem.update();
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
@@ -159,6 +160,7 @@ var Engine = (function(global) {
     game_start.render();
         
     star.render();
+    bluegem.render();
     allEnemies.forEach(function(enemy) {
     enemy.render();
     });
@@ -184,6 +186,7 @@ var Engine = (function(global) {
     'images/grass-block.png',
     'images/enemy-bug.png',
     'images/char-boy.png',
+    'images/Gem Blue.png',
     'images/Star.png',
     'images/Selector.png'
   ]);

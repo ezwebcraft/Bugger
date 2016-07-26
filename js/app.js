@@ -46,6 +46,12 @@ var Star = function(x, y, sprite) {
     Character.call(this, x, y, sprite);
 };
 
+var BlueGem = function(x, y, sprite) {
+    sprite = 'images/Gem Blue.png';
+    x = 100;
+    y = 200;
+    Character.call(this, x, y, sprite);
+};
 // add start position 
 
 var Game_Start = function(x, y, sprite) {
@@ -207,6 +213,31 @@ Star.prototype.update = function(dt) {
     }
 };
 
+BlueGem.prototype = Object.create(Character.prototype);
+
+BlueGem.prototype.box_Area = {
+    x: 90,
+    y: 70
+};
+
+BlueGem.prototype.location_x = 200;
+
+BlueGem.prototype.location_y = 200;
+
+BlueGem.prototype.constructor = BlueGem;
+
+BlueGem.prototype.update = function(dt) {
+
+    if (collision_Checker(this, player)) {
+        player.reset();
+        this.x = random_Selector(this.location_x);
+        this.y = random_Selector(this.location_y);
+        Score_Board += 1;
+        $("#score").text(Score_Board);
+        
+    }
+};
+
 Game_Start.prototype = Object.create(Character.prototype);
 
 //Game_Start.prototype.constructor = Game_Start;
@@ -236,6 +267,7 @@ var allEnemies = [
 
 var player = new Player();
 var star = new Star();
+var bluegem = new BlueGem()
 var game_start = new Game_Start();
 
 // This listens for key presses and sends the keys to your
