@@ -33,7 +33,7 @@ var Enemy = function(x, y, sprite) {
 var Player = function(x, y, sprite) {
     sprite = 'images/char-boy.png';
     x = 200;
-    y = 400;
+    y = 380;
     Character.call(this, x, y, sprite);
 };
 
@@ -41,7 +41,7 @@ var Player = function(x, y, sprite) {
 var Star = function(x, y, sprite) {
     sprite = 'images/Star.png';
     x = 200;
-    y = 68;
+    y = 65;
     Character.call(this, x, y, sprite);
 };
 
@@ -50,7 +50,7 @@ var Star = function(x, y, sprite) {
 var Game_Start = function(x, y, sprite) {
     sprite = 'images/Selector.png';
     x = 200;
-    y = 400;
+    y = 380;
     Character.call(this, x, y, sprite);
 };
 
@@ -132,7 +132,7 @@ Player.prototype.constructor = Player;
 Player.prototype.update = function() {
     // process action and move player
     var pos_x = 100;
-    var pos_y = 75;
+    var pos_y = 100;
     switch (this.action) {
         case 'up':
             if (this.y > canvas.boundaries.up) {
