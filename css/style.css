@@ -16,6 +16,8 @@
 body
 {
     text-align: center;
+     background: -webkit-linear-gradient(45deg, rgba(242,249,255,1) 0%,rgba(64,150,238,1) 100%); 
+  overflow: hidden;
 
    /* background: radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px,rgba(96, 16, 48, 0) 11px) 0 10px,
     radial-gradient(at 100% 100%,rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px),#8a3;
