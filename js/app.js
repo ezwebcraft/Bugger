@@ -13,6 +13,7 @@ var Character = function(x, y, sprite) {
 
 Character.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
 };
 
 
@@ -83,9 +84,9 @@ var random_Selector = function(array) {
 
 var collision_Checker = function(object, player) {
     return (player.x > object.x - object.box_Area.x / 2 &&
-            player.x < object.x + object.box_Area.x / 2 &&
-            player.y > object.y - object.box_Area.y / 2 &&
-            player.y < object.y + object.box_Area.y / 2);
+        player.x < object.x + object.box_Area.x / 2 &&
+        player.y > object.y - object.box_Area.y / 2 &&
+        player.y < object.y + object.box_Area.y / 2);
 };
 
 
@@ -174,7 +175,7 @@ Player.prototype.update = function() {
     // null that action for reset
     this.action = null;
 
-    if (this.y < 30) {
+    if (this.y < 25) {
         this.reset();
     }
 
@@ -195,7 +196,7 @@ Star.prototype = Object.create(Character.prototype);
 
 Star.prototype.box_Area = {
     x: 90,
-    y: 70
+    y: 90
 };
 
 Star.prototype.location_x = 200;
@@ -209,7 +210,7 @@ Star.prototype.update = function(dt) {
         this.x = this.location_x;
         Score_Board += 5;
         $("#score").text(Score_Board);
-        
+
     }
 };
 
@@ -217,12 +218,12 @@ BlueGem.prototype = Object.create(Character.prototype);
 
 BlueGem.prototype.box_Area = {
     x: 100,
-    y: 80
+    y: 100
 };
 
-BlueGem.prototype.location_x = [25, 100, 200, 300];
+BlueGem.prototype.location_x = [-2, 100, 300];
 
-BlueGem.prototype.location_y = [100,150,200,300];
+BlueGem.prototype.location_y = [100, 150, 250, 300];
 
 BlueGem.prototype.constructor = BlueGem;
 
@@ -234,7 +235,7 @@ BlueGem.prototype.update = function(dt) {
         this.y = random_Selector(this.location_y);
         Score_Board += 1;
         $("#score").text(Score_Board);
-        
+
     }
 };
 
