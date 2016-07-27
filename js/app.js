@@ -225,6 +225,14 @@ BlueGem.prototype.location_x = [-2, 100, 300];
 
 BlueGem.prototype.location_y = [100, 150, 250, 300];
 
+BlueGem.prototype.Gems = [
+
+'images/Gem Blue.png',
+'images/Gem Green.png',
+'images/Gem Orange.png'
+
+];
+
 BlueGem.prototype.constructor = BlueGem;
 
 BlueGem.prototype.update = function(dt) {
@@ -233,7 +241,9 @@ BlueGem.prototype.update = function(dt) {
         player.reset();
         this.x = random_Selector(this.location_x);
         this.y = random_Selector(this.location_y);
+        this.sprite = random_Selector(this.Gems);
         Score_Board += 1;
+        
         $("#score").text(Score_Board);
 
     }
