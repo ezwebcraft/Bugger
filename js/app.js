@@ -1,7 +1,7 @@
 // game functions
 // JavaScript Object Methods to create a Character object
 // This way any bugs can be control by a modular means or componete 
-var Score_Board = 0.0;
+var Score_Board = 0;
 
 var Character = function(x, y, sprite) {
     this.sprite = sprite;
@@ -49,7 +49,7 @@ var Star = function(x, y, sprite) {
 var BlueGem = function(x, y, sprite) {
     sprite = 'images/Gem Blue.png';
     x = 100;
-    y = 200;
+    y = 220;
     Character.call(this, x, y, sprite);
 };
 // add start position 
@@ -100,7 +100,7 @@ Enemy.prototype.box_Area = {
 };
 
 // Y location of the Enemy and update
-Enemy.prototype.location_y = [50, 140, 220, 300];
+Enemy.prototype.location_y = [50, 150, 220, 300];
 
 Enemy.prototype.constructor = Enemy;
 
@@ -139,7 +139,7 @@ Player.prototype.constructor = Player;
 Player.prototype.update = function() {
     // process action and move player
     var pos_x = 100;
-    var pos_y = 100;
+    var pos_y = 101;
     switch (this.action) {
         case 'up':
             if (this.y > canvas.boundaries.up) {
@@ -216,13 +216,13 @@ Star.prototype.update = function(dt) {
 BlueGem.prototype = Object.create(Character.prototype);
 
 BlueGem.prototype.box_Area = {
-    x: 90,
-    y: 70
+    x: 100,
+    y: 80
 };
 
-BlueGem.prototype.location_x = 200;
+BlueGem.prototype.location_x = [25, 100, 200, 300];
 
-BlueGem.prototype.location_y = 200;
+BlueGem.prototype.location_y = [100,150,200,300];
 
 BlueGem.prototype.constructor = BlueGem;
 
