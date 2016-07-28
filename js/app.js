@@ -1,6 +1,7 @@
 // game functions
 // JavaScript Object Methods to create a Character object
 // This way any bugs can be control by a modular means or componete 
+
 var Score_Board = 0;
 
 var Character = function(x, y, sprite) {
@@ -47,7 +48,7 @@ var Star = function(x, y, sprite) {
     Character.call(this, x, y, sprite);
 };
 
-var BlueGem = function(x, y, sprite) {
+var Gem = function(x, y, sprite) {
     sprite = 'images/Gem Blue.png';
     x = 100;
     y = 220;
@@ -214,18 +215,18 @@ Star.prototype.update = function(dt) {
     }
 };
 
-BlueGem.prototype = Object.create(Character.prototype);
+Gem.prototype = Object.create(Character.prototype);
 
-BlueGem.prototype.box_Area = {
+Gem.prototype.box_Area = {
     x: 100,
     y: 100
 };
 
-BlueGem.prototype.location_x = [-2, 100, 300];
+Gem.prototype.location_x = [-2, 100, 300];
 
-BlueGem.prototype.location_y = [100, 150, 250, 300];
+Gem.prototype.location_y = [100, 150, 250, 300];
 
-BlueGem.prototype.Gems = [
+Gem.prototype.Gems = [
 
 'images/Gem Blue.png',
 'images/Gem Green.png',
@@ -233,9 +234,9 @@ BlueGem.prototype.Gems = [
 
 ];
 
-BlueGem.prototype.constructor = BlueGem;
+Gem.prototype.constructor = Gem;
 
-BlueGem.prototype.update = function(dt) {
+Gem.prototype.update = function(dt) {
 
     if (collision_Checker(this, player)) {
         player.reset();
@@ -278,11 +279,12 @@ var allEnemies = [
 
 var player = new Player();
 var star = new Star();
-var bluegem = new BlueGem()
+var bluegem = new Gem()
 var game_start = new Game_Start();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
+
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',

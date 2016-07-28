@@ -45,6 +45,16 @@ A PEN BY Joseph Murphy
 https://codepen.io/DonzoJoe/pen/zxmdrQ
 */
 
+.bottom{
+    display: inline;
+    text-align: center;
+    text-decoration:none;
+
+    margin: 0;
+    padding: 0;
+
+}
+
 .cloudcontain1
 {
     position: absolute;
