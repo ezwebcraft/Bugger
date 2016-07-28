@@ -33,6 +33,7 @@ var Engine = (function(global) {
     'down': 400,
     'left': 0
   };
+  
     doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
