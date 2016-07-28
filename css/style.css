@@ -1,7 +1,4 @@
-/*
-{
-    border: 1px solid red;
-}*/
+
 
 @font-face
 {
@@ -12,16 +9,15 @@
 .bug-Title
 {
     font-family: Crisp;
-    color:#009911;
+
+    color: #091;
 }
 body
 {
     text-align: center;
-
+    /* For a Blue Sky gradient effect*/
     background: -webkit-linear-gradient(45deg, rgba(242,249,255,1) 0%,rgba(64,150,238,1) 100%);
-    /* background: radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px,rgba(96, 16, 48, 0) 11px) 0 10px,
-    radial-gradient(at 100% 100%,rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px),#8a3;
-    background-size: 20px 20px;*/
+    
 }
 
 p
@@ -29,25 +25,36 @@ p
     margin: 0;
 }
 
+/* for a more friendly frame */
 canvas
 {
     z-index: 10;
-
     border: 3px solid black;
     border-radius: 10%;
     box-shadow: 0 0 0 1px #111000;
 }
 
-
-.bottom{
-    display: inline;
-    list-style:none;
+.instruc
+{
+    text-align: center;
     margin:auto;
-    text-align:center;
 }
-.bottom li{
-    padding-left:5%;
-    display:inline;
+.bottom
+{
+    display: inline;
+
+    margin: auto;
+
+    list-style: none;
+
+    text-align: center;
+}
+.bottom li
+{
+    display: inline;
+
+    padding-left: 5%;
+
 }
 
 /*

@@ -165,7 +165,7 @@ Player.prototype.update = function() {
             break;
     }
 
-    // track position
+    // track the player position
 
     if (this.position !== this.x + ',' + this.y) {
 
