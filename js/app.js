@@ -18,7 +18,6 @@ Character.prototype.render = function() {
 };
 
 
-
 // Enemies our player must avoid
 var Enemy = function(x, y, sprite) {
     // Variables applied to each of our instances go here,
@@ -133,6 +132,10 @@ Enemy.prototype.update = function(dt) {
 };
 
 // prototype sections
+
+// Now write your own player class
+// This class requires an update(), render() and
+// a handleInput() method.
 
 Player.prototype = Object.create(Character.prototype);
 
@@ -250,20 +253,12 @@ Gem.prototype.update = function(dt) {
     }
 };
 
-Game_Start.prototype = Object.create(Character.prototype);
 
-//Game_Start.prototype.constructor = Game_Start;
-
-//Game_Start.prototype.update = function(dt) {};
+// Game_Start.prototype.constructor = Game_Start;
+// Game_Start.prototype.update = function(dt) {};
 // Draw the enemy on the screen, required method for game
-//Enemy.prototype.render = function() {
-//    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-//};
 
-
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+Game_Start.prototype = Object.create(Character.prototype);
 
 
 // Now instantiate your objects.
