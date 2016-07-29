@@ -228,9 +228,9 @@ Gem.prototype.location_y = [100, 150, 250, 300];
 
 Gem.prototype.Gems = [
 
-'images/Gem Blue.png',
-'images/Gem Green.png',
-'images/Gem Orange.png'
+    'images/Gem Blue.png',
+    'images/Gem Green.png',
+    'images/Gem Orange.png'
 
 ];
 
@@ -244,7 +244,7 @@ Gem.prototype.update = function(dt) {
         this.y = random_Selector(this.location_y);
         this.sprite = random_Selector(this.Gems);
         Score_Board += 1;
-        
+
         $("#score").text(Score_Board);
 
     }
