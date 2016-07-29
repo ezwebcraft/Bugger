@@ -20,3 +20,6 @@ for self-checking their submission.
 * Stars are worth 5 points !!!!
 
 
+## How to Run the Game
+
+simple, just open the index .html in any browser (Chrome, FireFox, Safari, IE, Opera etc....)
