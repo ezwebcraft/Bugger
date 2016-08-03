@@ -274,7 +274,7 @@ var allEnemies = [
 
 var player = new Player();
 var star = new Star();
-var bluegem = new Gem()
+var gems = new Gem()
 var game_start = new Game_Start();
 
 // This listens for key presses and sends the keys to your
