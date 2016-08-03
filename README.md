@@ -15,7 +15,7 @@ for self-checking their submission.
 
 * use **up right down left keys** to move 
 
-* gems are worth 1 points
+* gems are worth 1 points!
 
 * Stars are worth 5 points !!!!
 
