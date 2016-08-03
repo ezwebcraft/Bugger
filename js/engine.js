@@ -99,7 +99,7 @@ var Engine = (function(global) {
      */
     function updateEntities(dt) {
         star.update();
-        bluegem.update();
+        gems.update();
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
@@ -161,7 +161,7 @@ var Engine = (function(global) {
     game_start.render();
         
     star.render();
-    bluegem.render();
+    gems.render();
     allEnemies.forEach(function(enemy) {
     enemy.render();
     });
